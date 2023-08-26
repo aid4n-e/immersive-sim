@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a831b1e2ff83db744afebfaae2337fc4, type: 3}
+  m_Name: click04
+  m_EditorClassIdentifier: 
+  soundName: click04
+  soundType: General
+  clips:
+  - {fileID: 8300000, guid: 3f7c9c5c67335284ba42f00009fe5976, type: 3}
+  - {fileID: 8300000, guid: c4b970c92aa144e479fbe53b1c41f537, type: 3}
+  - {fileID: 8300000, guid: 7e9c6f4f38d180c4ea541e8a637d0113, type: 3}
+  - {fileID: 8300000, guid: 9844fd4f66c2769439972b826a27497c, type: 3}
+  - {fileID: 8300000, guid: 4b1a4d12daeed7f43a2bde3361cd1183, type: 3}
+  - {fileID: 8300000, guid: d52c39df8a3790c49a2ff9df54b6753a, type: 3}

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a831b1e2ff83db744afebfaae2337fc4, type: 3}
+  m_Name: slide02
+  m_EditorClassIdentifier: 
+  soundName: slide02
+  soundType: General
+  clips:
+  - {fileID: 8300000, guid: 60f23125cd1ce8e42bfcd6ddffc06793, type: 3}
+  - {fileID: 8300000, guid: fcbe03ffc005a234d8a962e41a3d147f, type: 3}
+  - {fileID: 8300000, guid: adb29293b07ef584fbdad420a7c80c0d, type: 3}
+  - {fileID: 8300000, guid: 9e0d451c17a651e44ac624752bb3a3da, type: 3}
+  - {fileID: 8300000, guid: 88daa8624e5fe414da35eae40cecd9d2, type: 3}
+  - {fileID: 8300000, guid: a48136c38e1fe4848876238c94cac026, type: 3}

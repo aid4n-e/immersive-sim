@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a831b1e2ff83db744afebfaae2337fc4, type: 3}
+  m_Name: click02
+  m_EditorClassIdentifier: 
+  path: General/Click02/
+  clips:
+  - {fileID: 8300000, guid: 14518e7377f85544b819e41662596eab, type: 3}
+  - {fileID: 8300000, guid: e3c0cff1429865b4e85b4207fa110236, type: 3}
+  - {fileID: 8300000, guid: c514e4ed53884924a928ff2fcd30e2c2, type: 3}
+  - {fileID: 8300000, guid: 58db768253cfd894a9374c253bfb0dfb, type: 3}
+  - {fileID: 8300000, guid: da57a70c95e30ae428ad8515f230566a, type: 3}
+  - {fileID: 8300000, guid: 002d77005f8f12d4ca09f502c289903e, type: 3}
+  - {fileID: 8300000, guid: 194b21b44ea942245843352852af5641, type: 3}
+  - {fileID: 8300000, guid: f5fc68cfb6ed8c1438c5774bb0b914a0, type: 3}
