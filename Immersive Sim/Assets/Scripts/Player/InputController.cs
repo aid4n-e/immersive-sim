@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class InputController : MonoBehaviour
 {
+    // All 2D arrays follow the rule of 0 = left hand, 1 = right hand
+
     // CONTROLLER INPUTS
     public bool[] grab = new bool[2];
     public bool[] trigger = new bool[2];

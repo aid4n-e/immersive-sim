@@ -11,6 +11,9 @@ public class Item : MonoBehaviour
     public Quaternion rotOffset;
      
     public bool grabbable = true;
+
+    public ItemGrab grab;
+
     public int handLR = -1;  // -1 = not held, 0 = left, 1 = right
     public bool usable = true;
     public float grabSpeed = 10;

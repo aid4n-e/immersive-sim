@@ -5,9 +5,11 @@ using UnityEngine.XR;
 
 /* Handles reloading, ammo counting, and firing of the Pistol weapon */
 
-
 public class Pistol : MonoBehaviour
 {
+    public Item item;
+    public ReferenceManager mgr;
+    public AudioSource audioSrc;
 
     public Gun gun;
 
@@ -229,6 +231,8 @@ public class Pistol : MonoBehaviour
     
     private void MagEject()
     {
+        mgr.audio.PlayRandomSound(audioSrc, 5);
+
         ejectInput = false;
 
         ammunition.ammo = ammo;
@@ -317,7 +321,19 @@ public class Pistol : MonoBehaviour
         loaded = true;
         loadInput = false;
 
+        if (item.handLR == 0)
+            mgr.input.actionable[1] = 0;
+        else
+            mgr.input.actionable[0] = 0;
+
+        lastMag.GetComponent<Item>().grab.Drop();
+
         lastMag.position = loadPoints[1].position;
+        lastMag.GetComponent<Item>().handLR = -1;
+        lastMag.GetComponent<Item>().grabbable = false;
+        lastMag.GetComponent<Item>().usable = false;
+
+        //mgr.input.actionable;
 
         ammunition = lastMag.GetComponent<Ammunition>();
         ammo = ammunition.ammo;  // Get ammo count

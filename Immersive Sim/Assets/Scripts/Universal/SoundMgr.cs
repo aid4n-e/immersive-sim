@@ -10,9 +10,8 @@ public class SoundMgr : MonoBehaviour
 {
     // Start is called before the first frame update
 
+    // Change this to start using enums instead
     public SoundBank soundBankList;
-
-
 
     public SoundBank selectedBank;
 
@@ -21,13 +20,14 @@ public class SoundMgr : MonoBehaviour
 
     //[SerializeField, ButtonInvoke(nameof(BuildSoundBank), ButtonInvoke.DisplayIn.PlayAndEditModes)] private bool buildSoundBank;  // Button for running BuildSoundBank function
 
-
-    void PlaySound(AudioSource src, int bank, int clip)
+    // Play a specific audio clip from a bank at a source
+    public void PlaySound(AudioSource src, int bank, int clip)
     {
         src.PlayOneShot(soundBankList.soundBanks[bank].clips[clip]);
     }
 
-    void PlayRandomSound(AudioSource src, int bank)
+    // Play a random audio clip from a bank at a source
+    public void PlayRandomSound(AudioSource src, int bank)
     {
         int clip = Random.Range(0, soundBankList.soundBanks[bank].clips.Length);
         src.PlayOneShot(soundBankList.soundBanks[bank].clips[clip]);

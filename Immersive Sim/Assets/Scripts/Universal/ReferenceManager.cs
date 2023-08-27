@@ -9,4 +9,7 @@ public class ReferenceManager : MonoBehaviour
     public Transform objectParent;
     public Transform player;
 
+    public InputController input;
+    public SoundMgr audio;
+
 }

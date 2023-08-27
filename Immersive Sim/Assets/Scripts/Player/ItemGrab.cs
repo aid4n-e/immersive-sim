@@ -4,14 +4,18 @@ using UnityEngine;
 public class ItemGrab : MonoBehaviour
 {
     public InputController input;
-    public ReferenceManager refManager;
+    public ReferenceManager mgr;
 
     public int handLR;
     public Transform hand;
 
+    public AudioSource src;
+
+
     public Item heldItem;
     public Item triggeredItem;
     public Transform triggeredItemObj;
+
 
     private void Update()
     {
@@ -21,7 +25,7 @@ public class ItemGrab : MonoBehaviour
         }
         if (!input.grab[handLR] && input.actionable[handLR] == 1)
         {
-            StartCoroutine(Drop(heldItem));
+            StartCoroutine(Throw(heldItem));
         }
 
         if (input.trigger[handLR] && input.actionable[handLR] == 0)
@@ -45,7 +49,7 @@ public class ItemGrab : MonoBehaviour
         input.actionable[handLR] = 1;
         heldItem = item;
         Transform itemObj = item.itemObj;
-        itemObj.parent = refManager.objectParent;
+        itemObj.parent = mgr.objectParent;
         item.grabbable = false;
         item.usable = false;
         itemObj.GetComponent<Rigidbody>().isKinematic = true;  // Disable item physics
@@ -55,6 +59,9 @@ public class ItemGrab : MonoBehaviour
 
         float lerpSpeed = item.grabSpeed;  // Copy grab speed so it's not overwritten
 
+        mgr.audio.PlayRandomSound(src, 10);
+
+        // Interpolate object toward hand position
         while (Vector3.Distance(item.itemObj.position, hand.position) > 0.001f)
         {
             if (heldItem == null)
@@ -74,13 +81,15 @@ public class ItemGrab : MonoBehaviour
             yield return null;
         }
 
-        item.itemObj.position = newPos;
+        item.itemObj.position = hand.position + hand.InverseTransformDirection(item.posOffset);
+        item.itemObj.rotation = hand.rotation * item.rotOffset;
         item.itemObj.parent = hand;
         item.handLR = handLR;
         item.usable = true;
     }
 
-    private IEnumerator Drop(Item item)
+    // Throw item from the hand's grasp (trigger when letting go of item)
+    private IEnumerator Throw(Item item)
     {
         item.grabbable = false;
         item.handLR = -1;
@@ -117,16 +126,29 @@ public class ItemGrab : MonoBehaviour
         item.grabbable = true;
     }
 
+    // Force the hand to drop object and become actionable (triggered when an item is taken, like loaded into a gun)
+    public IEnumerator Drop()
+    {
+        Item item = heldItem;
+        item.grabbable = false;
+        item.handLR = -1;
+        item.itemObj.parent = item.refManager.objectParent;
+        input.actionable[handLR] = 0;
+
+        float elapsed = 0;
+
+        while (elapsed < item.grabCooldown)  // Wait until cooldown
+        {
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+    }
+
 
     void StartAction()
     {
 
     }
-
-
-
-
-
 
 
     private void OnTriggerEnter(Collider other)
