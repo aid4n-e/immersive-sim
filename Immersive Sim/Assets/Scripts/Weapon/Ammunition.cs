@@ -23,7 +23,7 @@ public class Ammunition : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        //Debug.Log("Magazine Detected");
+        Debug.Log("Magazine Detected");
 
         if(other.GetComponentInParent<Pistol>())
         {
